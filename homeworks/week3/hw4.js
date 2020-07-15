@@ -9,35 +9,20 @@ rl.on('line', (line) => {
   lines.push(line);
 });
 
-function bigger(arr) {
-  if (Number(arr[0]) === Number(arr[1])) {
-    console.log('DRAW');
-  } else if (Number(arr[0]) > Number(arr[1])) {
-    console.log('A');
-  } else {
-    console.log('B');
-  }
-}
-
-function smaller(arr) {
-  if (Number(arr[0]) === Number(arr[1])) {
-    console.log('DRAW');
-  } else if (Number(arr[0]) > Number(arr[1])) {
-    console.log('B');
-  } else {
-    console.log('A');
-  }
-}
-
 function solve(input) {
-  const m = Number(input[0]);
-  for (let i = 1; i <= m; i += 1) {
-    const arr = input[i].split(' ');
-    if (Number(arr[2]) === 1) {
-      bigger(arr);
-    } else {
-      smaller(arr);
+  const str = input[0];
+
+  function reverse(strs) {
+    let result = '';
+    for (let i = strs.length - 1; i >= 0; i -= 1) {
+      result += strs[i];
     }
+    return result;
+  }
+  if (reverse(str) === str) {
+    console.log('True');
+  } else {
+    console.log('False');
   }
 }
 
