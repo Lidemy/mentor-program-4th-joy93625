@@ -10,7 +10,7 @@ const action = args[2];
 const params = args[3];
 
 function listBooks() {
-  request(`${API_ENDPOINT}/books?_limit=30`, (err, res, body) => {
+  request(`${API_ENDPOINT}/books?_limit=20`, (err, res, body) => {
     if (err) {
       return console.log('抓取失敗', err);
     }

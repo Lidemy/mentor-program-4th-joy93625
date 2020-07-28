@@ -5,20 +5,18 @@ const API_ENDPOINT = 'https://restcountries.eu/rest/v2/name';
 
 const name = args[2];
 
-
-// if (!name) {
-//    console.log('請輸入國家名稱');
-//     return;
-// }
-// 這段會出現這個問題
-// Parsing error: 'return' outside of function
-// 上網找了很多資料還是無解，看了其他同學的作業，好像都直接忽略掉這段
+const nameInput = function () {
+  if (!name) {
+    console.log('請輸入國家名稱');
+  }
+};
 
 request(`${API_ENDPOINT}/${name}`, (error, res, body) => {
   let data;
 
   try {
     data = JSON.parse(body);
+    if (nameInput > 0) return;
     if (res.statusCode >= 200 && res.statusCode < 300) {
       for (let i = 0; i < data.length; i += 1) {
         console.log('============');
