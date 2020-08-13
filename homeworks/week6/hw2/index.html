@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css" />
+    <title>表單</title>
+    <style>
+        .debug *
+        {
+            /* outline: 1px solid pink; */
+        }
+
+        body {
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .wrapper {
+            max-width: 645px;
+            background: white;
+            margin: 10% auto;
+            border-top: solid 8px #fad312;
+            box-shadow: 1.8px 2.4px 5px 0 rgba(0, 0, 0, 0.3);
+            padding: 54px 42px;
+        }
+
+        .apply-form-tittle {
+            font-size: 36px;
+            font-weight: bold;
+        }
+
+        .apply-form-desc {
+            font-size: 14px;
+            line-height: 1.5em;
+            margin-top: 35px;
+        }
+
+        .apply-form-notice {
+            margin-top: 22px;
+            font-size: 16px;
+            color: #e74149;
+        }
+        .input-block {
+            margin-top: 48px;
+        }
+        .input-block-title {
+            font-size: 20px;
+        }
+        .input-block-desc {
+            font-size: 14px;
+            margin-top: 8px;
+        }
+        .input-block-input {
+            margin-top: 12px;
+        }
+        .input-block-input input[type=text] {
+            border: solid 1px #d0d0d0;
+            padding: 5px;
+        }
+        .input-block-input label {
+            display: block;
+            margin-top: 12px;
+        }
+        .required::after {
+            content: "*";
+            color: #e74149;
+        }
+        .apply-form-submit {
+            font-size: 15px;
+            margin-top: 55px;
+            background-color: #fad312;
+            box-shadow: 1.8px 2.4px 5px 0 rgba(0, 0, 0, 0.3);
+            border: none;
+            padding: 12px 32px;
+            border-radius: 3px;
+        }
+        footer {
+            font-size: 13px;
+            color: #999999;
+            background: #000000;
+            text-align: center;
+            padding: 24px 12px;
+            border-top: solid 2px #fad312;
+        }
+    </style>
+</head>
+
+<body class="debug">
+    <div class="wrapper">
+        <form class="apply-form">
+            <h1 class="apply-form-tittle">新拖延運動報名表單</h1>
+            <p class="apply-form-desc">
+                活動日期：2020/12/10 ~ 2020/12/11<br>
+                活動地點：台北市大安區新生南路二段1號
+            </p>
+            <p class="apply-form-notice">
+                * 必填
+            </p>
+        </form>
+        <div class="input-block">
+            <div class="input-block-title required">
+                暱稱
+            </div>
+            <div class="input-block-input">
+                <input type="text" name="nickname" />
+            </div>
+        </div>
+        <div class="input-block">
+            <div class="input-block-title required">
+                電子郵件
+            </div>
+            <div class="input-block-input">
+                <input type="text" name="mail"" />
+            </div>
+        </div>
+        <div class="input-block">
+            <div class="input-block-title required">
+                手機號碼
+            </div>
+            <div class="input-block-input">
+                <input type="text" name="phone"" />
+            </div>
+        </div>
+        <div class="input-block">
+            <div class="input-block-title required">
+                報名類型
+            </div>
+            <div class="input-block-input">
+                <label>
+                    <input type="radio" name="type" />
+                    躺在床上用想像力實作
+                </label>
+                <label>
+                    <input type="radio" name="type" />
+                    趴在地上滑手機找現成的
+                </label>
+            </div>
+        </div>
+        <div class="input-block">
+            <div class="input-block-title required">
+                怎麼知道這個活動的？
+            </div>
+            <div class="input-block-input">
+                <input type="text" name="reason"" />
+            </div>
+        </div>
+        <div class="input-block">
+            <div class="input-block-title">
+                其他
+            </div>
+            <div class="input-block-desc">
+                對活動的一些建議
+            </div>
+            <div class="input-block-input">
+                <input type="text" name="nickname" />
+            </div>
+        </div>
+        <input type="submit" class="apply-form-submit" />
+        <p class="apply-form-desc">
+            請勿透過表單送出您的密碼。
+        </p>
+    </div>
+    <footer>© 2020 © Copyright. All rights Reserved.</footer>
+</body>
+
+</html>
