@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css" />
+    <title>常見問題</title>
+    <style>
+        * {
+            /* border: 1px solid pink; */
+        }
+
+        .navbar {
+            box-shadow: -1.4px -1.4px 6px 0 #97a2a0;
+        }
+
+        .navbar .wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+            background-color: white;
+            height: 84px;
+        }
+
+        .navbar_sitename {
+            font-size: 36px;
+            color: #489846;
+        }
+
+        .navbar_list {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar_list li {
+            margin-left: 60px;
+            padding: 15px 25px;
+            border-radius: 8px;
+            transition: background 0.1s;
+        }
+
+        .navbar_list a {
+            text-decoration: none;
+            font-size: 18px;
+            color: black;
+        }
+
+        .navbar_list li.active,
+        .navbar_list li:hover {
+            background: #ff7286;
+        }
+
+        .navbar_list li.active a,
+        .navbar_list li:hover a {
+            color: white;
+        }
+
+        .wrapper {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 12px;
+
+        }
+
+        .section {
+            margin-top: 80px;
+            text-align: center;
+        }
+
+        .faq_block {
+            margin: 0 auto;
+            max-width: 768px;
+        }
+
+        .faq_title {
+            font-size: 36px;
+            display: inline-block;
+            border-left: solid 15px #a3dea2;
+            padding-left: 16px;
+            margin-bottom: 36px;
+        }
+
+        .faq_item {
+            display: flex;
+            text-align: left;
+            border-bottom: 1px solid #a6e2c0;
+            padding-bottom: 24px;
+            cursor: pointer;
+            overflow: hidden;
+        }
+
+        .faq_item__hide {
+            height: 15px;
+        }
+
+        .faq_item:not(:first-child) {
+            margin-top: 24px;
+        }
+
+        .faq_item_number {
+            color: #70b282;
+            font-size: 24px;
+            margin-right: 16px;
+            line-height: 24px;
+        }
+
+        .faq_item_content h2 {
+            font-size: 18px;
+            margin: 0;
+            font-weight: normal;
+            line-height: 24px;
+        }
+
+        .faq_item_content p {
+            font-size: 16px;
+        }
+
+        footer {
+            margin-top: 40px;
+        }
+
+        .footer_top .wrapper {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .footer_top {
+            background: #e8efee;
+            padding: 32px;
+            color: #484848;
+        }
+
+        .footer_bottom {
+            background: #35564b;
+            padding: 12px;
+            text-align: center;
+            color: white;
+            font-size: 16px;
+        }
+
+        .footer_info {
+            font-size: 14px;
+        }
+
+        .footer_site {
+            font-size: 36px;
+            color: #489846;
+            text-align: right;
+        }
+
+        .footer_info div+div {
+            margin-top: 10px;
+        }
+
+        @media(max-width: 768px) {
+            .navbar .wrapper {
+                height: 170px;
+                flex-direction: column;
+                justify-content: space-between;
+                padding: 0px;
+            }
+
+            .navbar_sitename {
+                margin-top: 20px;
+            }
+
+            .navbar_list {
+                display: flex;
+                font-size: 16px;
+                width: 100%;
+            }
+
+            .navbar_list li {
+                flex: 1;
+                margin-left: 0;
+                border-radius: 0;
+                text-align: center;
+            }
+
+            .section {
+                margin-top: 20px;
+            }
+
+            .faq_block {
+                max-width: 350px;
+            }
+
+            .footer_top .wrapper {
+                flex-direction: column-reverse;
+            }
+
+            .footer_info {
+                margin-right: 0;
+                margin-top: 16px;
+            }
+            .footer_site {
+                text-align: left;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="wrapper">
+            <div class="navbar_sitename">
+                Just A Bite!
+            </div>
+            <ul class="navbar_list">
+                <li><a href="#">我要點餐</a></li>
+                <li><a href="#">查詢訂單</a></li>
+                <li class="active"><a href="#">抽個大獎</a></li>
+                <li><a href="#">常見問題</a></li>
+            </ul>
+        </div>
+    </nav>
+    <section class="section">
+        <div class="wrapper">
+            <div class="faq_title">
+                FAQ - 常見問題
+            </div>
+            <div class="faq_block">
+                <div class="faq_item faq_item__hide">
+                    <div class="faq_item_number">Q1:</div>
+                    <div class="faq_item_content">
+                        <h2>如何辦理退貨？</h2>
+                        <p>線上刷卡的使用方式也超簡單，只要您確認您當次的購物清單與金額都無誤，就可立即到匯款上傳系統，登入個人帳號密碼後，點選"線上刷卡方式"，確認收件住址後，再進行刷卡確認程序即可～</p>
+                    </div>
+                </div>
+                <div class="faq_item faq_item__hide">
+                    <div class="faq_item_number">
+                        Q2:
+                    </div>
+                    <div class="faq_item_content">
+                        <h2>
+                            如何辦理退貨？
+                        </h2>
+                        <p>線上刷卡的使用方式也超簡單，只要您確認您當次的購物清單與金額都無誤，就可立即到匯款上傳系統，登入個人帳號密碼後，點選"線上刷卡方式"，確認收件住址後，再進行刷卡確認程序即可～</p>
+                    </div>
+                </div>
+                <div class="faq_item faq_item__hide">
+                    <div class="faq_item_number">
+                        Q3:
+                    </div>
+                    <div class="faq_item_content">
+                        <h2>
+                            如何辦理退貨？
+                        </h2>
+                        <p>線上刷卡的使用方式也超簡單，只要您確認您當次的購物清單與金額都無誤，就可立即到匯款上傳系統，登入個人帳號密碼後，點選"線上刷卡方式"，確認收件住址後，再進行刷卡確認程序即可～</p>
+                    </div>
+                </div>
+                <div class="faq_item faq_item__hide">
+                    <div class="faq_item_number">
+                        Q4:
+                    </div>
+                    <div class="faq_item_content">
+                        <h2>
+                            如何辦理退貨？
+                        </h2>
+                        <p>線上刷卡的使用方式也超簡單，只要您確認您當次的購物清單與金額都無誤，就可立即到匯款上傳系統，登入個人帳號密碼後，點選"線上刷卡方式"，確認收件住址後，再進行刷卡確認程序即可～</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="footer_top">
+            <div class="wrapper">
+                <div class="footer_info">
+                    <div>餐館地址: 天上地下天堂路三分之一里六段520號</div>
+                    <div>訂位專線：02-1314-5566</div>
+                    <div>營業時間：週一〜週五 09:00~18:00 / 週六、週日、國定假日（含連假）休息</div>
+                    <div>email：service@justabite.com.tw</div>
+                </div>
+                <div>
+                    <div class="footer_site">Just A Bite!</div>
+                    <div>Facebook / Instagram / YouTube</div>
+                </div>
+            </div>
+        </div>
+        <div class="footer_bottom">
+            <p>Copyright © 2020 Just A Bite All Rights Reserved. 咬一口股份有限公司版權所有</p>
+        </div>
+    </footer>
+    <script>
+        document.querySelector('.faq_block').addEventListener('click', function (e) {
+            const element = e.target.closest('.faq_item') // closest()找到與提供的選擇器字符串匹配的節點，所以可以找到.faq_item下的numeber與content
+
+            if (element) {
+                element.classList.toggle('faq_item__hide')
+            }
+        });
+
+    </script>
+</body>
+
+</html>
