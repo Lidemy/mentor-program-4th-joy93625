@@ -1,0 +1,205 @@
+* {
+    box-sizing: border-box;
+    /* border: 1px solid rgba(0,0,0,0.2); */
+    margin: 0;
+  }
+.navbar {
+    box-shadow: 0px 8px 6px -6px rgba(0, 0, 0, 0.35);
+    height: 80px;
+
+}
+.wrapper {
+    max-width: 1280px;
+    margin: 0px auto;
+    padding: 10px;
+}
+.navbar_wrapper {
+    display: flex;
+    align-items: center;
+    height: 100%
+}
+.navbar_sitename {
+    font-size: 28px;
+    font-weight: bold;
+    text-decoration: none;
+    color:black;
+}
+.navbar_list {
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+    list-style: none;
+}
+.navbar_list div {
+    display: flex;
+}
+.navbar_list li {
+    margin-right: 20px;
+}
+.navbar_list a {
+    text-decoration: none;
+    color: #d0d0d0;
+}
+.navbar_list .active, .navbar_list a:hover {
+    color: black;
+}
+.banner {
+    background-image: linear-gradient(to top, #000000, #434343);
+    height: 240px;
+    color: #eeeeee;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.banner_wrapper > h2 {
+    font-size: 28px;
+}
+.banner_wrapper > div {
+    margin-top: 20px;
+}
+.cards_wrapper {
+    display: flex;
+}
+.cards {
+    margin: 0 auto;
+    margin-top: -30px;
+    background: white;
+    padding: 8px;
+}
+
+.card {
+    border: solid 1px #9a9a9a;
+    width: 900px;
+    padding: 30px;
+}
+.card + .card {
+    margin-top: 24px;
+}
+.card_content {
+    margin-top: 24px;    
+    white-space: pre-wrap;
+}
+.card_title {
+    font-size: 24px;
+    
+}
+.card_time {
+    margin-top: 19px;
+    padding: 10px 20px;
+    background: #eee;
+}
+.btn_read_more {
+    display: inline-block;
+    padding: 12px 16px;
+    border: solid 1px #e4e3e3;
+    color: #737373;
+    margin-top: 36px;
+    text-decoration: none;
+}
+.btn_read_more:hover, .btn_card_update:hover {
+    background: #b9b8b8;
+    color: white;
+}
+.card_header {
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+}
+.btn_card_update {
+    padding: 8px;
+    border: solid 1px #e4e3e3;
+    color: #737373;
+    text-decoration: none;
+}
+/* login.php */
+.card_login {
+    padding: 50px 72px;
+    margin: 0 auto;
+    margin-top: -30px;
+    background: white;
+    border: 1px solid black;
+    text-align: center;
+}
+.card_login input {
+    width: 100%;
+    margin-top: 10px;
+    padding: 5px;
+}
+.card_login_title {
+    text-align: center;
+    font-size: 28px;
+}
+.card_login_users {
+    margin-top: 50px;
+    margin-bottom: 36px;
+}
+.card_login_label {
+    margin-top: 20px;
+}
+/* admin.php*/
+.card_admin {
+    padding: 20px;
+    margin: 0 auto;
+    margin-top: -30px;
+    background: white;
+    border: 1px solid#e4e3e3;
+    text-align: center;
+    width: 650px;
+}
+.card_admin_list {
+    display: flex;
+    color: #737373;
+}
+.card_admin_list + .card_admin_list {
+    margin-top: 24px;
+}
+.card_admin_title {
+    flex: 1;
+    text-align: left;
+    color: black;
+}
+.card_admin_btn {
+    padding: 2px;
+    border: solid 1px #e4e3e3;
+    color: #737373;
+    text-decoration: none;
+    margin: 0 5px;
+}
+.card_admin_hr {
+    height: 2px;
+    max-width: 100%;
+    background: #e8e8e8;
+    margin: 10px auto;
+}
+/* new_post.php*/
+.card_newpost {
+    padding: 30px;
+    margin: 0 auto;
+    margin-top: -30px;
+    background: white;
+    border: 1px solid black;
+    width: 650px;
+}
+.card_newpost_label {
+    margin-top: 20px;
+    font-size: 24px;
+}
+.card_newpost_label textarea {
+    width: 588px;
+    height: 300px;
+}
+.card_newpost_title {
+    width: 100%;
+    margin-top: 20px;
+    padding: 5px;
+}
+.card_newpost_btn-wrapper {
+    text-align: right;
+    margin-top: 30px;
+}
+.card_newpost_btn {
+    padding: 2px;
+    border: solid 1px #e4e3e3;
+    color: #737373;
+    text-decoration: none;
+}
