@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Todo List</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="title">
+            Todo List
+            <div class="title-line">
+            </div>
+        </div>
+        <div class="input-block">
+            <input class="input-todo" type="text" placeholder="Add something to do here" />
+            <div class=" btn-add">+</div>
+        </div>
+        <div class="todos"></div>
+        <div><span class="uncomplete-count">0</span> 個未完成</div>
+        <div class="todo-options">
+            <div class="todo-completed">
+                <div class="active todo-item all" data-filter="all">全部</div>
+                <div class="todo-item" data-filter="uncomplete">未完成</div>
+                <div class="todo-item" data-filter="done">已完成</div>
+            </div>
+          <div type="button" class="clear-all">移除已完成待辦事項</div>
+          <div type="button" class="btn-save">儲存</div>
+        </div>
+    </div>
+        <script>
+            let id = 1;
+            let todos = [];
+            let todoCount = 0;
+            let uncompleteTodoCount = 0;
+            const template = `
+            <div class="todo {todoClass}">
+                <div class="todo-list">
+                    <input class="todo-check" type="checkbox" id="todo-{id}" >
+                    <label class="todo-content" for="todo-{id}">{content}</label>
+                </div>
+                <button class="btn-delete">x</button>
+            </div>
+            `
+            const searchParams = new URLSearchParams(window.location.search)
+            const todoId = searchParams.get('id')
+            if (todoId) {
+                $.getJSON('http://mentor-program.co/mtr04group5/hsuan/week12/hw2/get_todo.php?id=' + todoId, function(data) {
+                    todos = JSON.parse(data.data.todo)
+                    render()
+                });
+            }
+            function render() {
+                if (todos.length === 0) return
+                $('.todos').empty()
+                id = todos[todos.length - 1].id + 1
+                todoCount = todos.length
+                uncompleteTodoCount = todos.filter(todo => !todo.idDone).length
+                for(let i=0; i<todos.length; i++) {
+                const todo = todos[i]
+                $('.todos').append(
+                template
+                    .replace('{content}', escapeHtml(todo.content))
+                    .replace(/{id}/g, todo.id)
+                    .replace('{todoClass}', todo.isDone ? 'checked' : '')
+                )
+                    if (todo.isDone) {
+                    $('#todo-' + todo.id).prop('checked', true)
+                    }
+                }    
+                updateCounter()
+            }
+            $('.btn-add').click(() => {
+                addTodo()
+            })
+            $('.input-todo').keydown(e => {
+                if (e.key === 'Enter') {
+                    addTodo()
+                }
+            })
+
+            function addTodo(){
+                const value = $('.input-todo').val()
+                if (!value) return
+                todos.push({
+                    id: id,
+                    content: value,
+                    idDone: false
+                })
+                render()
+                // $('.todos').append(
+                //     template
+                //         .replace('{content}', escapeHtml(value))
+                //         .replace(/{id}/g, id)
+                // )
+                // id += 1
+                // todoCount++
+                // uncompleteTodoCount++
+                // updateCounter()
+                $('.input-todo').val('')
+            }
+            $('.todos').on('click', '.btn-delete', (e) => {
+                const deleteId = $(e.target).parent().find('.todo-check').attr('id').replace('todo-', '');
+                todos = todos.filter(todo => {
+                    //return todo.id !== Number(deleteId) 可省略成這樣
+                    if (todo.id === Number(deleteId)) return false
+                    return true
+                })
+                render()
+                // $(e.target).parent().remove();
+                // todoCount--
+                // const isChecked = $(e.target).parent().find('.check-todo').is(':checked')
+                // if (!isChecked) {
+                //     uncompleteTodoCount--
+                // }
+                // updateCounter()
+            })
+            $('.todos').on('change', '.todo-check', (e) => {
+                const target = $(e.target)
+                const isChecked = target.is(":checked")
+                const updateId = target.attr('id').replace('todo-', '')
+                for (let i = 0; i < todos.length; i++) {
+                    if (todos[i].id === Number(updateId)) {
+                        todos[i].isDone = isChecked
+                    }
+                }
+                render()
+                // if (isChecked) {
+                //     target.parents('.todo').addClass('checked')
+                //     uncompleteTodoCount--
+                // } else {
+                //     uncompleteTodoCount++
+                //     target.parents('.todo').removeClass('checked')
+                // }
+                // updateCounter()
+            })
+            $('.clear-all').click(() => {
+                todos = todos.filter(todo => !todo.isDone)
+                render(todos)
+            })
+            $('.todo-completed').on('click','div',e => {
+                const target = $(e.target)
+                const filter = target.attr('data-filter')
+                $('.todo-completed div.active').removeClass('active')
+                target.addClass('active')
+                if (filter === 'all'){
+                    $('.todo').show()
+                } else if (filter === 'uncomplete') {
+                    $('.todo').show()
+                    $('.todo.checked').hide()
+                } else { //done
+                    $('.todo').hide()
+                    $('.todo.checked').show()
+                }
+            })
+            $('.btn-save').click(() => {
+                // let todos = []
+                // $('.todo').each((i, element) => {
+                //     const input = $(element).find('.todo-check')
+                //     const label = $(element).find('.todo-content')
+                //     todos.push({
+                //         id: input.attr('id').replace('todo-',''),
+                //         content: label.text(),
+                //         isDone: $(element).hasClass('checked')
+                //     })
+                // })
+                const data = JSON.stringify(todos)
+                $.ajax({
+                    type: 'POST',
+                    url: 'http://mentor-program.co/mtr04group5/hsuan/week12/hw2/add_todo.php',
+                    data: {
+                        todo: data
+                    },
+                    success: function(res) {
+                        const respId = res.id
+                        window.location = 'index.html?id=' + respId
+                    },
+                    error: function() {
+                        alert('Err QQ')
+                    }
+                })
+            })
+            function updateCounter () {
+                $('.uncomplete-count').text(uncompleteTodoCount)
+            }
+            function escapeHtml(unsafe) {
+                return unsafe
+                    .replace(/&/g, "&amp;")
+                    .replace(/</g, "&lt;")
+                    .replace(/>/g, "&gt;")
+                    .replace(/"/g, "&quot;")
+                    .replace(/'/g, "&#039;");
+            }
+
+        </script>
+        <!-- <script>
+            if (target.classList.contains('todo-check')) {
+                if (target.isChecked) {
+                    target.parentNode.classList.add('done')
+                }
+            
+            }
+        </script> -->
+</body>
+
+</html>
