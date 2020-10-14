@@ -60,7 +60,7 @@
                 $('.todos').empty()
                 id = todos[todos.length - 1].id + 1
                 todoCount = todos.length
-                uncompleteTodoCount = todos.filter(todo => !todo.idDone).length
+                uncompleteTodoCount = todos.filter(todo => !todo.isDone).length
                 for(let i=0; i<todos.length; i++) {
                 const todo = todos[i]
                 $('.todos').append(
@@ -90,7 +90,7 @@
                 todos.push({
                     id: id,
                     content: value,
-                    idDone: false
+                    isDone: false
                 })
                 render()
                 // $('.todos').append(

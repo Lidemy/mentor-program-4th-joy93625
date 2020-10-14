@@ -75,7 +75,7 @@ input[type=checkbox]:after {
 }
 
 input[type=checkbox]:checked:after {
-    content: "✓";
+    content: "v";
     font-size: 18px;
     text-align: center;
     color: #36B1BF;
