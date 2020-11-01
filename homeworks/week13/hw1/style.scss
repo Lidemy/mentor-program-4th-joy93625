@@ -1,0 +1,209 @@
+* {
+    box-sizing: border-box;
+    /* border: 1px solid rgba(0,0,0,0.2); */
+    margin: 0;
+  }
+.navbar {
+    box-shadow: 0px 8px 6px -6px rgba(0, 0, 0, 0.35);
+    height: 80px;
+    &_wrapper {
+        display: flex;
+        align-items: center;
+        height: 100%
+    }
+    &_sitename {
+        font-size: 28px;
+        font-weight: bold;
+        text-decoration: none;
+        color:black;
+    }
+    &_list {
+        display: flex;
+        flex: 1;
+        justify-content: space-between;
+        list-style: none;
+        li {
+            margin-right: 20px;
+        }
+        div {
+            display: flex;
+        }
+        a {
+            text-decoration: none;
+            color: #d0d0d0;
+        }
+    }
+}
+
+.wrapper {
+    max-width: 1280px;
+    margin: 0px auto;
+    padding: 10px;
+}
+
+.navbar_list .active, .navbar_list a:hover {
+    color: black;
+}
+.banner {
+    background-image: linear-gradient(to top, #000000, #434343);
+    height: 240px;
+    color: #eeeeee;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &_wrapper > h2 {
+        font-size: 28px;
+    }
+    &_wrapper > div {
+        margin-top: 20px;
+    }
+}
+.cards {
+    margin: 0 auto;
+    margin-top: -30px;
+    background: white;
+    padding: 8px;
+    &_wrapper {
+        display: flex;
+    }
+}
+
+.card {
+    border: solid 1px #9a9a9a;
+    width: 900px;
+    padding: 30px;
+    &_content {
+        margin-top: 24px;    
+        white-space: pre-wrap;
+    }
+    &_title {
+        font-size: 24px;
+        
+    }
+    &_time {
+        margin-top: 19px;
+        padding: 10px 20px;
+        background: #eee;
+    }
+    &_header {
+        display: flex;
+        flex: 1;
+        justify-content: space-between;
+    }
+}
+.card + .card {
+    margin-top: 24px;
+}
+
+.btn_read_more {
+    display: inline-block;
+    padding: 12px 16px;
+    border: solid 1px #e4e3e3;
+    color: #737373;
+    margin-top: 36px;
+    text-decoration: none;
+}
+.btn_read_more:hover, .btn_card_update:hover {
+    background: #b9b8b8;
+    color: white;
+}
+.btn_card_update {
+    padding: 8px;
+    border: solid 1px #e4e3e3;
+    color: #737373;
+    text-decoration: none;
+}
+/* login.php */
+.card_login {
+    padding: 50px 72px;
+    margin: 0 auto;
+    margin-top: -30px;
+    background: white;
+    border: 1px solid black;
+    text-align: center;
+    input {
+        width: 100%;
+        margin-top: 10px;
+        padding: 5px;
+    }
+    &_title {
+        text-align: center;
+        font-size: 28px;
+    }
+    &_label {
+        margin-top: 20px;
+    }
+    &_users {
+        margin-top: 50px;
+        margin-bottom: 36px;
+    }
+}
+/* admin.php*/
+.card_admin {
+    padding: 20px;
+    margin: 0 auto;
+    margin-top: -30px;
+    background: white;
+    border: 1px solid#e4e3e3;
+    text-align: center;
+    width: 650px;
+    &_list {
+        display: flex;
+        color: #737373;
+    }
+    &_title {
+        flex: 1;
+        text-align: left;
+        color: black;
+    }
+    &_btn {
+        padding: 2px;
+        border: solid 1px #e4e3e3;
+        color: #737373;
+        text-decoration: none;
+        margin: 0 5px;
+    }
+    &_hr {
+        height: 2px;
+        max-width: 100%;
+        background: #e8e8e8;
+        margin: 10px auto;
+    }
+
+}
+.card_admin_list + .card_admin_list {
+    margin-top: 24px;
+}
+/* new_post.php*/
+.card_newpost {
+    padding: 30px;
+    margin: 0 auto;
+    margin-top: -30px;
+    background: white;
+    border: 1px solid black;
+    width: 650px;
+    &_label {
+        margin-top: 20px;
+        font-size: 24px;
+        textarea {
+            width: 588px;
+            height: 300px;
+        }
+    }
+    &_title {
+        width: 100%;
+        margin-top: 20px;
+        padding: 5px;
+    }
+    &_btn-wrapper {
+        text-align: right;
+        margin-top: 30px;
+    }
+    &_btn {
+        padding: 2px;
+        border: solid 1px #e4e3e3;
+        color: #737373;
+        text-decoration: none;
+    }
+
+}
